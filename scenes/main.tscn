@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://s1oq8ubwvqrs"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_stkfe"]
+[ext_resource type="PackedScene" uid="uid://onl7ofsree7u" path="res://scenes/player.tscn" id="2_47bs6"]
+[ext_resource type="Script" path="res://scenes/hero.gd" id="3_vucas"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_stkfe")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.290196, 0.243137, 1)
+
+[node name="Hero" parent="." instance=ExtResource("2_47bs6")]
+position = Vector2(72, 72)
+script = ExtResource("3_vucas")
+
+[node name="Wizard" parent="." instance=ExtResource("2_47bs6")]
+position = Vector2(1116, 610)
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 0, -152, 0, -152, 704, 1280, 704, 1280, -64, -152, -64, -160, 0, 1152, 0, 1152, 648, 0, 648)
+
+[connection signal="timeout" from="MoveTimer" to="Hero" method="timout_can_move"]
+[connection signal="timeout" from="MoveTimer" to="Wizard" method="timout_can_move"]
