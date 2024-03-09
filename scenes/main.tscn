@@ -1,6 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://s1oq8ubwvqrs"]
 
 [ext_resource type="PackedScene" uid="uid://c5e6ve0xy1frm" path="res://scenes/wall.tscn" id="1_juajr"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_vclpo"]
 [ext_resource type="PackedScene" uid="uid://onl7ofsree7u" path="res://scenes/player.tscn" id="2_47bs6"]
 [ext_resource type="Script" path="res://scenes/hero.gd" id="3_vucas"]
 [ext_resource type="Script" path="res://scenes/wizard.gd" id="4_f7c6c"]
@@ -8,10 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://b8yj3e7ic4135" path="res://art/wizard_1.png" id="5_vq5od"]
 [ext_resource type="Script" path="res://sound/music.gd" id="7_a3q6i"]
 [ext_resource type="Script" path="res://sound/sounds.gd" id="8_ad3sk"]
-
-[sub_resource type="GDScript" id="GDScript_tecsm"]
-script/source = "extends Node2D
-"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lwcgw"]
 animations = [{
@@ -36,7 +33,7 @@ animations = [{
 }]
 
 [node name="Main" type="Node2D"]
-script = SubResource("GDScript_tecsm")
+script = ExtResource("1_vclpo")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -48,8 +45,86 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.686275, 0.819608, 0.74902, 1)
 
+[node name="Clouds" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="WorldBounds" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldBounds"]
+polygon = PackedVector2Array(0, 0, -252, 0, -288, 792, 1332, 792, 1296, -180, -216, -180, -252, 0, 1152, 0, 1152, 648, 0, 648)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+script = ExtResource("7_a3q6i")
+
+[node name="SoundsFX" type="AudioStreamPlayer" parent="."]
+script = ExtResource("8_ad3sk")
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 2.925
+one_shot = true
+
+[node name="DarkTimer" type="Timer" parent="."]
+wait_time = 5.85
+one_shot = true
+
+[node name="Wall2" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(360, 360)
+
 [node name="Wall" parent="." instance=ExtResource("1_juajr")]
 position = Vector2(288, 360)
+
+[node name="Wall3" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(376, 296)
+rotation = 1.5708
+
+[node name="Wall4" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(684, 360)
+
+[node name="Wall5" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(72, 180)
+
+[node name="Wall6" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(648, 542)
+
+[node name="Wall7" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(612, 360)
+
+[node name="Wall8" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(720, 396)
+
+[node name="Wall9" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(432, 252)
+
+[node name="Wall10" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(576, 576)
+rotation = 1.5708
+
+[node name="Wall11" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(540, 324)
+
+[node name="Wall12" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(45, 542)
+
+[node name="Wall13" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(124, 542)
+
+[node name="Wall14" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(196, 527)
+rotation = 1.5708
+
+[node name="Wall15" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(396, 113)
+
+[node name="Wall16" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(916, 488)
 
 [node name="Hero" parent="." instance=ExtResource("2_47bs6")]
 position = Vector2(72, 72)
@@ -57,6 +132,8 @@ script = ExtResource("3_vucas")
 metadata/_edit_group_ = true
 
 [node name="HeroSprite" type="AnimatedSprite2D" parent="Hero"]
+position = Vector2(2, -2)
+scale = Vector2(1.4, 1.2)
 sprite_frames = SubResource("SpriteFrames_lwcgw")
 
 [node name="Wizard" parent="." instance=ExtResource("2_47bs6")]
@@ -65,23 +142,11 @@ script = ExtResource("4_f7c6c")
 metadata/_edit_group_ = true
 
 [node name="WizardSprite" type="AnimatedSprite2D" parent="Wizard"]
+position = Vector2(0, -6)
+scale = Vector2(1, 1.2)
 sprite_frames = SubResource("SpriteFrames_mrmn1")
 frame_progress = 0.734514
 
-[node name="MoveTimer" type="Timer" parent="."]
-wait_time = 0.1
-autostart = true
-
-[node name="WorldBounds" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldBounds"]
-polygon = PackedVector2Array(0, 0, -152, 0, -152, 704, 1280, 704, 1280, -64, -152, -64, -160, 0, 1152, 0, 1152, 648, 0, 648)
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-script = ExtResource("7_a3q6i")
-
-[node name="SoundsFXBro" type="AudioStreamPlayer" parent="."]
-script = ExtResource("8_ad3sk")
-
-[connection signal="hit_other" from="Hero" to="SoundsFXBro" method="_on_hero_hit_other"]
-[connection signal="timeout" from="MoveTimer" to="Wizard" method="timout_can_move"]
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="DarkTimer" to="." method="_on_dark_timer_timeout"]
+[connection signal="hit_other" from="Hero" to="SoundsFX" method="_on_hero_hit_other"]
