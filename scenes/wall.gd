@@ -16,5 +16,7 @@ func _process(delta):
 func _on_area_entered(area):
 	if area is Hero:
 		$AnimatedSprite2D.play("hidden")
-		$CollisionShape2D.set_deferred("disabled", true)
-	
+		set_deferred("is_burnt", true)
+	elif area is Wizard:
+		$AnimatedSprite2D.play("visible")
+		set_deferred("is_burnt", false)
