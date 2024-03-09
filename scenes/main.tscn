@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://s1oq8ubwvqrs"]
-
+[gd_scene load_steps=9 format=3 uid="uid://s1oq8ubwvqrs"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_stkfe"]
-[ext_resource type="Script" path="res://sound/music.gd" id="1_w760x"]
 [ext_resource type="PackedScene" uid="uid://onl7ofsree7u" path="res://scenes/player.tscn" id="2_47bs6"]
 [ext_resource type="Script" path="res://scenes/hero.gd" id="3_vucas"]
 [ext_resource type="Script" path="res://scenes/wizard.gd" id="4_f7c6c"]
@@ -67,9 +65,6 @@ autostart = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldBounds"]
 polygon = PackedVector2Array(0, 0, -152, 0, -152, 704, 1280, 704, 1280, -64, -152, -64, -160, 0, 1152, 0, 1152, 648, 0, 648)
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-script = ExtResource("1_w760x")
 
 [connection signal="timeout" from="MoveTimer" to="Hero" method="timout_can_move"]
 [connection signal="timeout" from="MoveTimer" to="Wizard" method="timout_can_move"]
