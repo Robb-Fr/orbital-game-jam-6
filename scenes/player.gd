@@ -22,8 +22,13 @@ func _process(delta):
 		position += velocity * mov_length
 
 func _on_area_entered(area):
-	position = prev_pos
 	if area is Player:
 		hit_other.emit()
 		print("hit other")
+	elif area is Wall:
+		var wall: Wall = area
+		if not wall.is_burnt:
+			position = prev_pos
+	else:
+		position = prev_pos
 	

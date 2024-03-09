@@ -1,4 +1,5 @@
 extends Player
+class_name Wizard
 
 func get_input() -> Vector2:
 	var velocity = Vector2.ZERO # The player's movement vector.
