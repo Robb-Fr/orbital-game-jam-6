@@ -16,6 +16,5 @@ func play_sound(sound_name):
 func _process(delta):
 	pass
 
-
 func _on_hero_hit_other():
 	play_sound('ouch')
