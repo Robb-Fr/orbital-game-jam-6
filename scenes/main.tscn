@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://sound/music.gd" id="7_a3q6i"]
 [ext_resource type="Script" path="res://sound/sounds.gd" id="8_ad3sk"]
 [ext_resource type="Script" path="res://scenes/cloud_manager.gd" id="8_npn4g"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="9_4xeko"]
+[ext_resource type="PackedScene" uid="uid://ckjl7627fecke" path="res://scenes/hud.tscn" id="9_4xeko"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vclpo")
