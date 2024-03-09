@@ -9,10 +9,5 @@ func get_input() -> Vector2:
 
 func _process(delta):
 	var velocity = get_input()
-	if velocity != Vector2.ZERO:
-		print(velocity)
-	var prev_pos = position
-	
-	position += velocity * mov_length
-	
-	var next_area: Area2D = new Area2D()
+	if $NextArea.get_overlapping_areas().is_empty():
+		position += velocity * mov_length
