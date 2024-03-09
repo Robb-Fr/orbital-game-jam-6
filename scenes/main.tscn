@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://s1oq8ubwvqrs"]
+[gd_scene load_steps=11 format=3 uid="uid://s1oq8ubwvqrs"]
 
 [ext_resource type="PackedScene" uid="uid://c5e6ve0xy1frm" path="res://scenes/wall.tscn" id="1_juajr"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vclpo"]
@@ -8,7 +8,8 @@
 [ext_resource type="Script" path="res://scenes/wizard.gd" id="4_f7c6c"]
 [ext_resource type="Script" path="res://sound/music.gd" id="7_a3q6i"]
 [ext_resource type="Script" path="res://sound/sounds.gd" id="8_ad3sk"]
-[ext_resource type="PackedScene" uid="uid://ckjl7627fecke" path="res://scenes/hud.tscn" id="9_4xeko"]
+[ext_resource type="Script" path="res://scenes/cloud_manager.gd" id="8_npn4g"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="9_4xeko"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vclpo")
@@ -52,6 +53,9 @@ one_shot = true
 [node name="DarkTimer" type="Timer" parent="."]
 wait_time = 5.85
 one_shot = true
+
+[node name="CloudManager" type="Node2D" parent="."]
+script = ExtResource("8_npn4g")
 
 [node name="Wall2" parent="." instance=ExtResource("1_juajr")]
 position = Vector2(360, 360)
@@ -123,6 +127,8 @@ position = Vector2(1080, 576)
 position = Vector2(72, 72)
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="FlashTimer" to="CloudManager" method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="DarkTimer" to="." method="_on_dark_timer_timeout"]
+[connection signal="timeout" from="DarkTimer" to="CloudManager" method="_on_dark_timer_timeout"]
 [connection signal="hit_other" from="Hero" to="SoundsFX" method="_on_hero_hit_other"]
 [connection signal="start_game" from="HUD" to="." method="start"]

@@ -3,10 +3,10 @@ extends Node2D
 func start():
 	$DarkTimer.start()
 	$HUD.show_message("Get ready")
-	$Clouds.visible = true
 	$Hero.start($HeroStartPosition.position)
 	$Wizard.start($WizardStartPosition.position)
 	$Music.play_song()
+	$CloudManager.show_clouds()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +17,6 @@ func _process(delta):
 	pass
 
 func _on_flash_timer_timeout():
-	$Clouds.visible = true
 	$Hero.visible = false
 	$Wizard.visible = false
 	$Hero.can_move = true
@@ -27,7 +26,6 @@ func _on_flash_timer_timeout():
 
 
 func _on_dark_timer_timeout():
-	$Clouds.visible = false
 	$Hero.visible = true
 	$Wizard.visible = true
 	$Hero.can_move = false
