@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://s1oq8ubwvqrs"]
+[gd_scene load_steps=10 format=3 uid="uid://s1oq8ubwvqrs"]
 
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_stkfe"]
+[ext_resource type="PackedScene" uid="uid://c5e6ve0xy1frm" path="res://scenes/wall.tscn" id="1_juajr"]
 [ext_resource type="PackedScene" uid="uid://onl7ofsree7u" path="res://scenes/player.tscn" id="2_47bs6"]
 [ext_resource type="Script" path="res://scenes/hero.gd" id="3_vucas"]
 [ext_resource type="Script" path="res://scenes/wizard.gd" id="4_f7c6c"]
 [ext_resource type="Texture2D" uid="uid://c6km0huxahmm7" path="res://art/bunny_1.png" id="4_rp72q"]
 [ext_resource type="Texture2D" uid="uid://b8yj3e7ic4135" path="res://art/wizard_1.png" id="5_vq5od"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_yj2o7"]
+[sub_resource type="GDScript" id="GDScript_tecsm"]
+script/source = "extends Node2D
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lwcgw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -30,7 +34,7 @@ animations = [{
 }]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_stkfe")
+script = SubResource("GDScript_tecsm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -40,22 +44,27 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.196078, 0.290196, 0.243137, 1)
+color = Color(0.686275, 0.819608, 0.74902, 1)
 
-[node name="Hero" parent="." instance=ExtResource("2_47bs6")]
+[node name="Wall" parent="." instance=ExtResource("1_juajr")]
+position = Vector2(288, 360)
+
+[node name="Player" parent="." instance=ExtResource("2_47bs6")]
 position = Vector2(72, 72)
 script = ExtResource("3_vucas")
+metadata/_edit_group_ = true
 
-[node name="HeroSprite" type="AnimatedSprite2D" parent="Hero"]
-sprite_frames = SubResource("SpriteFrames_yj2o7")
+[node name="HeroSprite" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_lwcgw")
 
 [node name="Wizard" parent="." instance=ExtResource("2_47bs6")]
 position = Vector2(1080, 576)
 script = ExtResource("4_f7c6c")
+metadata/_edit_group_ = true
 
 [node name="WizardSprite" type="AnimatedSprite2D" parent="Wizard"]
 sprite_frames = SubResource("SpriteFrames_mrmn1")
-frame_progress = 0.928987
+frame_progress = 0.734514
 
 [node name="MoveTimer" type="Timer" parent="."]
 wait_time = 0.1
@@ -66,5 +75,4 @@ autostart = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldBounds"]
 polygon = PackedVector2Array(0, 0, -152, 0, -152, 704, 1280, 704, 1280, -64, -152, -64, -160, 0, 1152, 0, 1152, 648, 0, 648)
 
-[connection signal="timeout" from="MoveTimer" to="Hero" method="timout_can_move"]
 [connection signal="timeout" from="MoveTimer" to="Wizard" method="timout_can_move"]

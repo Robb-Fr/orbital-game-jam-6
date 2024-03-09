@@ -22,8 +22,9 @@ func _process(delta):
 		position += velocity * mov_length
 
 func _on_area_entered(area):
-	position = prev_pos
 	if area is Player:
 		hit_other.emit()
 		print("hit other")
+	else:
+		position = prev_pos
 	
