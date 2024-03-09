@@ -5,7 +5,9 @@ class_name Player
 @export var speed = 300
 var prev_pos: Vector2
 var moving: bool
+var can_move: bool = true
 var target: Vector2
+var dead: bool = false
 signal hit_other
 
 func get_input() -> Vector2:
@@ -17,16 +19,16 @@ func _ready():
 	target = position
 
 func _process(delta):
-	if not moving:
+	if not moving and not dead and can_move:
 		var direction = get_input()
 		if direction.x != 0 and direction.y != 0:
-				direction.y = 0
-				
+			direction.y = 0
+		
 		if direction != Vector2.ZERO:
 			prev_pos = position
 			moving = true
 			target = position + direction * mov_length
-		
+			
 func _physics_process(delta):
 	position.direction_to(target) * speed
 	if position.distance_to(target) > 10:
@@ -39,6 +41,8 @@ func _on_area_entered(area):
 	if area is Player:
 		hit_other.emit()
 		print("hit other")
+		# prevent moving again
+		dead = true
 	elif area is Wall:
 		var wall: Wall = area
 		if not wall.is_burnt or self is Wizard:
@@ -46,6 +50,3 @@ func _on_area_entered(area):
 	else:
 		target = prev_pos
 		
-		
-		
-	

@@ -1,34 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://onl7ofsree7u"]
+[gd_scene load_steps=6 format=3 uid="uid://onl7ofsree7u"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_tnbpa"]
-[ext_resource type="Texture2D" uid="uid://d3wp0ssyu1tt7" path="res://art/playerGrey_up1.png" id="2_3hn2q"]
-[ext_resource type="Texture2D" uid="uid://dresjxp1l3fhk" path="res://art/playerGrey_up2.png" id="3_sj4jy"]
-[ext_resource type="Texture2D" uid="uid://jqpijrr5dc68" path="res://art/playerGrey_walk1.png" id="4_pk307"]
-[ext_resource type="Texture2D" uid="uid://bsi677wbnwrs6" path="res://art/playerGrey_walk2.png" id="5_redow"]
+[ext_resource type="Texture2D" uid="uid://c6km0huxahmm7" path="res://art/bunny_1.png" id="2_1gn8i"]
+[ext_resource type="Texture2D" uid="uid://b8yj3e7ic4135" path="res://art/wizard_1.png" id="3_u2y64"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8vxwe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3hn2q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_sj4jy")
+"texture": ExtResource("2_1gn8i")
 }],
 "loop": true,
-"name": &"up",
-"speed": 7.0
+"name": &"hero",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_pk307")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_redow")
+"texture": ExtResource("3_u2y64")
 }],
 "loop": true,
-"name": &"walk",
-"speed": 5.0
+"name": &"wizard",
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unenh"]
@@ -38,11 +30,10 @@ size = Vector2(72, 72)
 script = ExtResource("1_tnbpa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-scale = Vector2(0.5, 0.5)
+position = Vector2(0, -7)
+scale = Vector2(0.999797, 1.21332)
 sprite_frames = SubResource("SpriteFrames_8vxwe")
-animation = &"up"
-frame_progress = 0.706572
+animation = &"hero"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_unenh")

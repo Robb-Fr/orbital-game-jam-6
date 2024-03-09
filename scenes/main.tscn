@@ -1,36 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://s1oq8ubwvqrs"]
+[gd_scene load_steps=8 format=3 uid="uid://s1oq8ubwvqrs"]
 
 [ext_resource type="PackedScene" uid="uid://c5e6ve0xy1frm" path="res://scenes/wall.tscn" id="1_juajr"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vclpo"]
 [ext_resource type="PackedScene" uid="uid://onl7ofsree7u" path="res://scenes/player.tscn" id="2_47bs6"]
 [ext_resource type="Script" path="res://scenes/hero.gd" id="3_vucas"]
 [ext_resource type="Script" path="res://scenes/wizard.gd" id="4_f7c6c"]
-[ext_resource type="Texture2D" uid="uid://c6km0huxahmm7" path="res://art/bunny_1.png" id="4_rp72q"]
-[ext_resource type="Texture2D" uid="uid://b8yj3e7ic4135" path="res://art/wizard_1.png" id="5_vq5od"]
 [ext_resource type="Script" path="res://sound/music.gd" id="7_a3q6i"]
 [ext_resource type="Script" path="res://sound/sounds.gd" id="8_ad3sk"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lwcgw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_rp72q")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mrmn1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_vq5od")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vclpo")
@@ -131,21 +107,10 @@ position = Vector2(72, 72)
 script = ExtResource("3_vucas")
 metadata/_edit_group_ = true
 
-[node name="HeroSprite" type="AnimatedSprite2D" parent="Hero"]
-position = Vector2(2, -2)
-scale = Vector2(1.4, 1.2)
-sprite_frames = SubResource("SpriteFrames_lwcgw")
-
 [node name="Wizard" parent="." instance=ExtResource("2_47bs6")]
 position = Vector2(1080, 576)
 script = ExtResource("4_f7c6c")
 metadata/_edit_group_ = true
-
-[node name="WizardSprite" type="AnimatedSprite2D" parent="Wizard"]
-position = Vector2(0, -6)
-scale = Vector2(1, 1.2)
-sprite_frames = SubResource("SpriteFrames_mrmn1")
-frame_progress = 0.734514
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="DarkTimer" to="." method="_on_dark_timer_timeout"]
