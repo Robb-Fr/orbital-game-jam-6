@@ -9,6 +9,8 @@ var curr_self_modulate = 0.0;
 var velocities = []
 var coords = []
 
+signal fadeout_finished
+
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,8 +31,6 @@ func _process(delta):
 	var move_x
 	var move_y
 	
-	print(curr_self_modulate)
-	
 	if fading_state != FadingState.NONE:
 		var sign = 1.0 if fading_state == FadingState.IN else -1.0
 		curr_self_modulate = clamp(curr_self_modulate + delta * sign, 0.0, 1.0)
@@ -38,6 +38,8 @@ func _process(delta):
 			get_children()[i].self_modulate.a = curr_self_modulate
 		if curr_self_modulate == 0.0 or curr_self_modulate == 1.0:
 			fading_state = FadingState.NONE
+			if curr_self_modulate == 0.0:
+				fadeout_finished.emit()
 	if 0.0 < curr_self_modulate:
 		for i in range(NUMBER_CLOUDS):
 			get_children()[i].position += velocities[i]
