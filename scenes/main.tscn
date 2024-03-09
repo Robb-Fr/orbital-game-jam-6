@@ -1,17 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://s1oq8ubwvqrs"]
+[gd_scene load_steps=10 format=3 uid="uid://s1oq8ubwvqrs"]
 
 [ext_resource type="PackedScene" uid="uid://c5e6ve0xy1frm" path="res://scenes/wall.tscn" id="1_juajr"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vclpo"]
 [ext_resource type="PackedScene" uid="uid://onl7ofsree7u" path="res://scenes/player.tscn" id="2_47bs6"]
+[ext_resource type="Texture2D" uid="uid://hsvuh8accmq0" path="res://art/Untitled_Artwork.png" id="2_t8ppl"]
 [ext_resource type="Script" path="res://scenes/hero.gd" id="3_vucas"]
 [ext_resource type="Script" path="res://scenes/wizard.gd" id="4_f7c6c"]
 [ext_resource type="Script" path="res://sound/music.gd" id="7_a3q6i"]
 [ext_resource type="Script" path="res://sound/sounds.gd" id="8_ad3sk"]
+[ext_resource type="PackedScene" uid="uid://ckjl7627fecke" path="res://scenes/hud.tscn" id="9_4xeko"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vclpo")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,7 +21,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.686275, 0.819608, 0.74902, 1)
+texture = ExtResource("2_t8ppl")
 
 [node name="Clouds" type="ColorRect" parent="."]
 visible = false
@@ -35,7 +37,7 @@ color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 [node name="WorldBounds" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WorldBounds"]
-polygon = PackedVector2Array(0, 0, -252, 0, -288, 792, 1332, 792, 1296, -180, -216, -180, -252, 0, 1152, 0, 1152, 648, 0, 648)
+polygon = PackedVector2Array(0, 0, -252, 0, -288, 792, 1397, 810, 1372, -181, -216, -180, -252, 0, 1152, 0, 1152, 648, 0, 648)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 script = ExtResource("7_a3q6i")
@@ -112,6 +114,15 @@ position = Vector2(1080, 576)
 script = ExtResource("4_f7c6c")
 metadata/_edit_group_ = true
 
+[node name="HUD" parent="." instance=ExtResource("9_4xeko")]
+
+[node name="WizardStartPosition" type="Marker2D" parent="."]
+position = Vector2(1080, 576)
+
+[node name="HeroStartPosition" type="Marker2D" parent="."]
+position = Vector2(72, 72)
+
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="DarkTimer" to="." method="_on_dark_timer_timeout"]
 [connection signal="hit_other" from="Hero" to="SoundsFX" method="_on_hero_hit_other"]
+[connection signal="start_game" from="HUD" to="." method="start"]

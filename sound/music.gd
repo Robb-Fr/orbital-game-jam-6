@@ -1,9 +1,10 @@
 extends AudioStreamPlayer
 
-func _ready():
-	var music = load("res://sound/music_game_wizard_hero.wav")
-	play_song(music)
+var music: AudioStream
 
-func play_song(music: AudioStream) -> void:
+func _ready():
+	music = load("res://sound/music_game_wizard_hero.wav")
+
+func play_song() -> void:
 	stream = music
 	play()

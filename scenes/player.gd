@@ -13,10 +13,15 @@ signal hit_other
 func get_input() -> Vector2:
 	return Vector2.ZERO
 
-func _ready():
-	prev_pos = position
+func start(pos: Vector2 = position):
+	prev_pos = pos
 	moving = false
-	target = position
+	target = pos
+	visible = false
+
+func _ready():
+	start()
+	visible = true
 
 func _process(delta):
 	if not moving and not dead and can_move:
