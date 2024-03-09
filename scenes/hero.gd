@@ -10,5 +10,5 @@ func get_input() -> Vector2:
 		velocity.y += 1
 	if Input.is_action_just_pressed("left_move_up"):
 		velocity.y -= 1
-	
+		
 	return velocity
