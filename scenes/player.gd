@@ -18,6 +18,7 @@ func start(pos: Vector2 = position):
 	moving = false
 	target = pos
 	visible = false
+	dead = false
 
 func _ready():
 	start()

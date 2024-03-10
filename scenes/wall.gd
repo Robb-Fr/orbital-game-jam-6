@@ -20,3 +20,10 @@ func _on_area_entered(area):
 	elif area is Wizard:
 		$AnimatedSprite2D.play("visible")
 		set_deferred("is_burnt", false)
+
+
+func _on_animated_sprite_2d_animation_changed():
+	if z_index == 0:
+		z_index = -1
+	else:
+		z_index = 0

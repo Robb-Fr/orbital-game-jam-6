@@ -38,3 +38,4 @@ animation = &"visible"
 shape = SubResource("RectangleShape2D_q23qi")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

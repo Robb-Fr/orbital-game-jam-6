@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c77ri0m5b7jya"]
+
+[node name="UiGrid" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VLine" type="Line2D" parent="."]
+points = PackedVector2Array(2.08165e-12, -1296, 2.08165e-12, 648)
+width = 1.0
+default_color = Color(0, 0, 0, 0.0666667)
+
+[node name="HLine" type="Line2D" parent="."]
+points = PackedVector2Array(-1152, 2.08165e-12, 1152, 2.08165e-12)
+width = 1.0
+default_color = Color(0, 0, 0, 0.0666667)

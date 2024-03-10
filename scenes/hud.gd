@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@export var ui_grid_scene: PackedScene
 signal start_game
 
 func show_message(text):
@@ -23,6 +24,11 @@ func update_score(score):
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for i in range(32):
+		var new_grid = ui_grid_scene.instantiate()
+		new_grid.position = Vector2(36*i, 36*i)
+		add_child(new_grid)
+		move_child(new_grid, 0)
 	pass # Replace with function body.
 
 

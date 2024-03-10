@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckjl7627fecke"]
+[gd_scene load_steps=6 format=3 uid="uid://ckjl7627fecke"]
 
 [ext_resource type="Script" path="res://scenes/hud.gd" id="1_n7h71"]
 [ext_resource type="FontFile" uid="uid://c4i1r70rs6j6f" path="res://fonts/Xolonium-Regular.ttf" id="1_u6gia"]
+[ext_resource type="PackedScene" uid="uid://c77ri0m5b7jya" path="res://scenes/ui_grid.tscn" id="3_y4yub"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_6amyn"]
 action = &"start_game"
@@ -11,6 +12,7 @@ events = [SubResource("InputEventAction_6amyn")]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_n7h71")
+ui_grid_scene = ExtResource("3_y4yub")
 
 [node name="Message" type="Label" parent="."]
 anchors_preset = 8
