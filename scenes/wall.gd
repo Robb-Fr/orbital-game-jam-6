@@ -11,13 +11,19 @@ func _ready():
 func _process(delta):
 	pass
 
+func burn():
+	$AnimatedSprite2D.play("hidden")
+	set_deferred("is_burnt", true)
+
+func unburn():
+	$AnimatedSprite2D.play("visible")
+	set_deferred("is_burnt", false)
+
 func _on_area_entered(area):
 	if area is Hero:
-		$AnimatedSprite2D.play("hidden")
-		set_deferred("is_burnt", true)
+		burn()
 	elif area is Wizard:
-		$AnimatedSprite2D.play("visible")
-		set_deferred("is_burnt", false)
+		unburn()
 
 func _on_animated_sprite_2d_animation_changed():
 	if z_index == 0:
