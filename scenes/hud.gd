@@ -9,13 +9,14 @@ func show_message(text):
 	$MessageTimer.start()
 	
 func on_ended_replay():
-	$Message.text = "Hero catch the Wizard"
+	$Message.text = "Revenge of the cursed"
 	$Message.show()
 	
 	await get_tree().create_timer(1.0).timeout
 	$StartButton.show()
 	
 func show_game_over(hero_wins: bool):
+	$StartButton.text = 'Restart'
 	if hero_wins:
 		show_message("Hero Wins")
 	else:
@@ -34,6 +35,8 @@ func _ready():
 		#new_grid.position = Vector2(36*i, 36*i)
 		#add_child(new_grid)
 		#move_child(new_grid, 0)
+	$Message.text = "Revenge of the cursed"
+	$Message.show()
 	pass # Replace with function body.
 
 
