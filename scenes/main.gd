@@ -30,7 +30,7 @@ func start():
 		is_first_run = false
 		await get_tree().create_timer(1).timeout
 	$HUD.show_message("Get ready")
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(3).timeout
 	$DarkTimer.start()
 	$Hero.start($HeroStartPosition.position)
 	$Wizard.start($WizardStartPosition.position)
