@@ -1,6 +1,7 @@
 extends Node2D
 
 signal ended_replay
+signal hero_wins
 
 func start():
 	for node in get_children():
@@ -47,6 +48,7 @@ func _on_flash_timer_timeout():
 func game_over(hero_wins: bool):
 	$HUD.show_game_over(hero_wins)
 	await get_tree().create_timer(3).timeout
+	$Music.play()
 	var hero_moves = $Hero.played_moves
 	var wizard_moves = $Wizard.played_moves
 	$Hero.start($HeroStartPosition.position)
@@ -64,6 +66,8 @@ func _on_dark_timer_timeout():
 	$Wizard.can_move = false
 	if $Hero.dead or $Wizard.dead:
 		print("finished")
+		$Music.stop()
+		hero_wins.emit()
 		game_over(true)
 	else:
 		$FlashTimer.start()
@@ -77,4 +81,4 @@ func _on_music_curse_ended():
 	$Hero.can_move = false
 	$Wizard.can_move = false
 	print("finished")
-	$HUD.show_game_over(false)
+	game_over(false)

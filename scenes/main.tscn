@@ -128,6 +128,7 @@ position = Vector2(1080, 576)
 position = Vector2(72, 72)
 
 [connection signal="ended_replay" from="." to="HUD" method="on_ended_replay"]
+[connection signal="hero_wins" from="." to="SoundsFX" method="_on_main_hero_wins"]
 [connection signal="curse_ended" from="Music" to="." method="_on_music_curse_ended"]
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]

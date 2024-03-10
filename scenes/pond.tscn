@@ -1,26 +1,51 @@
-[gd_scene load_steps=8 format=3 uid="uid://pso5nu2r8pnm"]
+[gd_scene load_steps=13 format=3 uid="uid://pso5nu2r8pnm"]
 
-[ext_resource type="Texture2D" uid="uid://cnu4yibgj086u" path="res://art/pond_1-1.png" id="1_5hujb"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="1_jrl14"]
-[ext_resource type="Texture2D" uid="uid://dcsx7bxjrwops" path="res://art/pond_1-2.png" id="2_efekv"]
+[ext_resource type="Texture2D" uid="uid://46m4jlhyky8p" path="res://art/bottom_pond_anim-2.png" id="2_twung"]
+[ext_resource type="Texture2D" uid="uid://b46lftb0a4uc4" path="res://art/bottom_pond_anim-3.png" id="3_ppptc"]
+[ext_resource type="Texture2D" uid="uid://bxlvta4spg4xy" path="res://art/bottom_pond_anim-4.png" id="4_qpo06"]
+[ext_resource type="Texture2D" uid="uid://dbdul3ystkwly" path="res://art/bottom_pond_anim-5.png" id="5_3fjxf"]
+[ext_resource type="Texture2D" uid="uid://33b7q1sq54c" path="res://art/bottom_pond_anim-6.png" id="6_bk0ro"]
+[ext_resource type="Texture2D" uid="uid://ce435cv562n0" path="res://art/bottom_pond_anim-7.png" id="7_83g4j"]
+[ext_resource type="Texture2D" uid="uid://bw25elie7860f" path="res://art/bottom_pond_anim-1.png" id="8_720jl"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gwfpf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_5hujb")
+"texture": ExtResource("2_twung")
 }],
 "loop": true,
-"name": &"hidden",
+"name": &"clouded",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_efekv")
+"texture": ExtResource("3_ppptc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qpo06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3fjxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bk0ro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_83g4j")
+}],
+"loop": true,
+"name": &"hidden",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_720jl")
 }],
 "loop": true,
 "name": &"visible",
-"speed": 5.0
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jd6sx"]

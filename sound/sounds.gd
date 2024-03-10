@@ -27,3 +27,7 @@ func _on_flash_timer_timeout():
 
 func _on_dark_timer_timeout():
 	play_sound('woosh')
+
+func _on_main_hero_wins():
+	print("playing hero wins")
+	play_sound('jingle_hero')
