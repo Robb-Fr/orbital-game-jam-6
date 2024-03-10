@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://pso5nu2r8pnm"]
+
+[ext_resource type="Texture2D" uid="uid://cnu4yibgj086u" path="res://art/pond_1-1.png" id="1_5hujb"]
+[ext_resource type="Script" path="res://scenes/wall.gd" id="1_jrl14"]
+[ext_resource type="Texture2D" uid="uid://dcsx7bxjrwops" path="res://art/pond_1-2.png" id="2_efekv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwfpf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5hujb")
+}],
+"loop": true,
+"name": &"hidden",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_efekv")
+}],
+"loop": true,
+"name": &"visible",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jd6sx"]
+size = Vector2(122, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhbma"]
+size = Vector2(240, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf78l"]
+size = Vector2(30, 40)
+
+[node name="Pond" type="Area2D"]
+script = ExtResource("1_jrl14")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gwfpf")
+animation = &"visible"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-52, 21)
+shape = SubResource("RectangleShape2D_jd6sx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-25, 49)
+shape = SubResource("RectangleShape2D_rhbma")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(110, 61)
+shape = SubResource("RectangleShape2D_tf78l")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

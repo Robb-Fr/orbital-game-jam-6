@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://onl7ofsree7u"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_tnbpa"]
-[ext_resource type="Texture2D" uid="uid://c6km0huxahmm7" path="res://art/bunny_1.png" id="2_1gn8i"]
+[ext_resource type="Texture2D" uid="uid://c7q72j0v8u7p2" path="res://art/hero 4.png" id="2_r56a7"]
 [ext_resource type="Texture2D" uid="uid://b8yj3e7ic4135" path="res://art/wizard_1.png" id="3_u2y64"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8vxwe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1gn8i")
+"texture": ExtResource("2_r56a7")
 }],
 "loop": true,
 "name": &"hero",
@@ -31,9 +31,9 @@ script = ExtResource("1_tnbpa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
-scale = Vector2(0.999797, 1.21332)
+scale = Vector2(1.16976, 1.21332)
 sprite_frames = SubResource("SpriteFrames_8vxwe")
-animation = &"hero"
+animation = &"wizard"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_unenh")

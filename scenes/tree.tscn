@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://vtt84mxo3g1r"]
+
+[ext_resource type="Texture2D" uid="uid://dhn7ly5lltkhd" path="res://art/Mirkwood-2 2.png" id="1_hisyp"]
+[ext_resource type="Script" path="res://scenes/wall.gd" id="1_j30mj"]
+[ext_resource type="Texture2D" uid="uid://k0vbuv0gfpfs" path="res://art/Mirkwood-1 2.png" id="2_a7iyc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5i11j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hisyp")
+}],
+"loop": true,
+"name": &"hidden",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a7iyc")
+}],
+"loop": true,
+"name": &"visible",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ph3w5"]
+size = Vector2(36, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7beu"]
+size = Vector2(93, 68)
+
+[node name="Tree" type="Area2D"]
+script = ExtResource("1_j30mj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5i11j")
+animation = &"visible"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 43.5)
+shape = SubResource("RectangleShape2D_ph3w5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -34)
+shape = SubResource("RectangleShape2D_l7beu")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

@@ -14,6 +14,7 @@ func get_input() -> Vector2:
 	return Vector2.ZERO
 
 func start(pos: Vector2 = position):
+	position = pos
 	prev_pos = pos
 	moving = false
 	target = pos

@@ -1,15 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://s1oq8ubwvqrs"]
+[gd_scene load_steps=14 format=3 uid="uid://s1oq8ubwvqrs"]
 
-[ext_resource type="PackedScene" uid="uid://c5e6ve0xy1frm" path="res://scenes/wall.tscn" id="1_juajr"]
+[ext_resource type="PackedScene" uid="uid://c5e6ve0xy1frm" path="res://scenes/bush.tscn" id="1_juajr"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vclpo"]
 [ext_resource type="PackedScene" uid="uid://onl7ofsree7u" path="res://scenes/player.tscn" id="2_47bs6"]
-[ext_resource type="Texture2D" uid="uid://hsvuh8accmq0" path="res://art/Untitled_Artwork.png" id="2_t8ppl"]
+[ext_resource type="Texture2D" uid="uid://bwewbafvhlhww" path="res://art/background.png" id="2_yg8qp"]
 [ext_resource type="Script" path="res://scenes/hero.gd" id="3_vucas"]
 [ext_resource type="Script" path="res://scenes/wizard.gd" id="4_f7c6c"]
 [ext_resource type="Script" path="res://sound/music.gd" id="7_a3q6i"]
 [ext_resource type="Script" path="res://sound/sounds.gd" id="8_ad3sk"]
 [ext_resource type="Script" path="res://scenes/cloud_manager.gd" id="8_npn4g"]
 [ext_resource type="PackedScene" uid="uid://ckjl7627fecke" path="res://scenes/hud.tscn" id="9_4xeko"]
+[ext_resource type="PackedScene" uid="uid://vtt84mxo3g1r" path="res://scenes/tree.tscn" id="11_u3nb5"]
+[ext_resource type="PackedScene" uid="uid://pso5nu2r8pnm" path="res://scenes/pond.tscn" id="12_lc4h0"]
+[ext_resource type="PackedScene" uid="uid://d3mp7sfqawh5s" path="res://scenes/little_pound.tscn" id="13_ato5o"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vclpo")
@@ -23,7 +26,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_t8ppl")
+texture = ExtResource("2_yg8qp")
 
 [node name="Clouds" type="ColorRect" parent="."]
 visible = false
@@ -72,7 +75,7 @@ rotation = 1.5708
 position = Vector2(684, 360)
 
 [node name="Wall5" parent="." instance=ExtResource("1_juajr")]
-position = Vector2(72, 180)
+position = Vector2(72, 222)
 
 [node name="Wall6" parent="." instance=ExtResource("1_juajr")]
 position = Vector2(648, 542)
@@ -93,21 +96,8 @@ rotation = 1.5708
 [node name="Wall11" parent="." instance=ExtResource("1_juajr")]
 position = Vector2(540, 324)
 
-[node name="Wall12" parent="." instance=ExtResource("1_juajr")]
-position = Vector2(45, 542)
-
-[node name="Wall13" parent="." instance=ExtResource("1_juajr")]
-position = Vector2(124, 542)
-
-[node name="Wall14" parent="." instance=ExtResource("1_juajr")]
-position = Vector2(196, 527)
-rotation = 1.5708
-
 [node name="Wall15" parent="." instance=ExtResource("1_juajr")]
 position = Vector2(396, 113)
-
-[node name="Wall16" parent="." instance=ExtResource("1_juajr")]
-position = Vector2(916, 488)
 
 [node name="Hero" parent="." instance=ExtResource("2_47bs6")]
 position = Vector2(72, 72)
@@ -119,6 +109,12 @@ position = Vector2(1080, 576)
 script = ExtResource("4_f7c6c")
 metadata/_edit_group_ = true
 
+[node name="Tree" parent="." instance=ExtResource("11_u3nb5")]
+position = Vector2(912, 198)
+
+[node name="Tree2" parent="." instance=ExtResource("11_u3nb5")]
+position = Vector2(360, 525)
+
 [node name="HUD" parent="." instance=ExtResource("9_4xeko")]
 
 [node name="WizardStartPosition" type="Marker2D" parent="."]
@@ -126,6 +122,15 @@ position = Vector2(1080, 576)
 
 [node name="HeroStartPosition" type="Marker2D" parent="."]
 position = Vector2(72, 72)
+
+[node name="Pond" parent="." instance=ExtResource("12_lc4h0")]
+position = Vector2(912, 569)
+
+[node name="LittlePound2" parent="." instance=ExtResource("13_ato5o")]
+position = Vector2(171, 508)
+
+[node name="LittlePound" parent="." instance=ExtResource("13_ato5o")]
+position = Vector2(676, 164)
 
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="FlashTimer" to="CloudManager" method="_on_flash_timer_timeout"]
