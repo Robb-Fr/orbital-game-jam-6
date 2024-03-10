@@ -56,7 +56,6 @@ func hide_clouds():
 func _on_flash_timer_timeout():
 	show_clouds()
 
-
 func _on_dark_timer_timeout():
 	hide_clouds();
 

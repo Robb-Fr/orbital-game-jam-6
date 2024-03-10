@@ -1,7 +1,9 @@
 extends AudioStreamPlayer
 
 var sounds = {
-	'ouch': load('res://sound/ouch.mp3')
+	'ouch': load('res://sound/ouch.mp3'),
+	'woosh': load('res://sound/woosh.wav'),
+	'hsoow': load("res://sound/hsoow.wav"),
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -18,3 +20,9 @@ func _process(delta):
 
 func _on_hero_hit_other():
 	play_sound('ouch')
+	
+func _on_flash_timer_timeout():
+	play_sound('hsoow')
+
+func _on_dark_timer_timeout():
+	play_sound('woosh')
