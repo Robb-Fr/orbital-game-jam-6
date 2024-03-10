@@ -1,22 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5e6ve0xy1frm"]
+[gd_scene load_steps=10 format=3 uid="uid://c5e6ve0xy1frm"]
 
-[ext_resource type="Texture2D" uid="uid://b2iknwbikh5bs" path="res://art/shrub_1-2.png" id="1_05jqu"]
-[ext_resource type="Texture2D" uid="uid://dlxonwdwrc7v8" path="res://art/shrub_1-1.png" id="1_6macf"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="1_pf0r1"]
+[ext_resource type="Texture2D" uid="uid://dwk5vd32uqfaj" path="res://art/shrub_1-1 2.png" id="3_ukfc2"]
+[ext_resource type="Texture2D" uid="uid://svswcj4o1hel" path="res://art/shrub_1-3.png" id="4_miq28"]
+[ext_resource type="Texture2D" uid="uid://b6sddgycbs2go" path="res://art/shrub_1-4.png" id="5_orhl4"]
+[ext_resource type="Texture2D" uid="uid://dqkllaysj6jac" path="res://art/shrub_1-5.png" id="6_e4487"]
+[ext_resource type="Texture2D" uid="uid://bs8tekagh7lg2" path="res://art/shrub_1-6.png" id="7_7fg5n"]
+[ext_resource type="Texture2D" uid="uid://d12av1x21252r" path="res://art/shrub_1-7.png" id="8_tycfb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cnd53"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_05jqu")
+"texture": ExtResource("4_miq28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_orhl4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e4487")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7fg5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tycfb")
 }],
 "loop": true,
 "name": &"hidden",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_6macf")
+"texture": ExtResource("3_ukfc2")
 }],
 "loop": true,
 "name": &"visible",
@@ -33,6 +49,7 @@ script = ExtResource("1_pf0r1")
 position = Vector2(2.08165e-12, 18)
 sprite_frames = SubResource("SpriteFrames_cnd53")
 animation = &"visible"
+frame_progress = 0.807223
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_q23qi")

@@ -127,11 +127,14 @@ position = Vector2(1080, 576)
 [node name="HeroStartPosition" type="Marker2D" parent="."]
 position = Vector2(72, 72)
 
+[connection signal="ended_replay" from="." to="HUD" method="on_ended_replay"]
 [connection signal="curse_ended" from="Music" to="." method="_on_music_curse_ended"]
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="FlashTimer" to="SoundsFX" method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="FlashTimer" to="CloudManager" method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="DarkTimer" to="." method="_on_dark_timer_timeout"]
+[connection signal="timeout" from="DarkTimer" to="SoundsFX" method="_on_dark_timer_timeout"]
 [connection signal="timeout" from="DarkTimer" to="CloudManager" method="_on_dark_timer_timeout"]
 [connection signal="hit_other" from="Hero" to="SoundsFX" method="_on_hero_hit_other"]
 [connection signal="start_game" from="HUD" to="." method="start"]

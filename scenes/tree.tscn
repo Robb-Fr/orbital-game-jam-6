@@ -1,22 +1,42 @@
-[gd_scene load_steps=7 format=3 uid="uid://vtt84mxo3g1r"]
+[gd_scene load_steps=12 format=3 uid="uid://vtt84mxo3g1r"]
 
-[ext_resource type="Texture2D" uid="uid://dhn7ly5lltkhd" path="res://art/Mirkwood-2 2.png" id="1_hisyp"]
 [ext_resource type="Script" path="res://scenes/wall.gd" id="1_j30mj"]
-[ext_resource type="Texture2D" uid="uid://k0vbuv0gfpfs" path="res://art/Mirkwood-1 2.png" id="2_a7iyc"]
+[ext_resource type="Texture2D" uid="uid://cot2flg7gaa4p" path="res://art/Mirkwood-3.png" id="2_76imb"]
+[ext_resource type="Texture2D" uid="uid://bj2hxdn3ecqsn" path="res://art/Mirkwood-4.png" id="3_awx3g"]
+[ext_resource type="Texture2D" uid="uid://cddnk5h3xlixp" path="res://art/Mirkwood-1 3.png" id="4_ahntq"]
+[ext_resource type="Texture2D" uid="uid://h4wv63ajl66" path="res://art/Mirkwood-5.png" id="4_n235a"]
+[ext_resource type="Texture2D" uid="uid://7m1w11b7lk5g" path="res://art/Mirkwood-6.png" id="5_0tk0e"]
+[ext_resource type="Texture2D" uid="uid://60ahoehww57" path="res://art/Mirkwood-7.png" id="6_jsf5d"]
+[ext_resource type="Texture2D" uid="uid://g3jbijck1qq3" path="res://art/Mirkwood-8.png" id="7_58t54"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5i11j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_hisyp")
+"texture": ExtResource("2_76imb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_awx3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n235a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0tk0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jsf5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_58t54")
 }],
 "loop": true,
 "name": &"hidden",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_a7iyc")
+"texture": ExtResource("4_ahntq")
 }],
 "loop": true,
 "name": &"visible",
@@ -35,6 +55,7 @@ script = ExtResource("1_j30mj")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5i11j")
 animation = &"visible"
+frame_progress = 0.467415
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 43.5)
