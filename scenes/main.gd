@@ -31,10 +31,10 @@ func _on_dark_timer_timeout():
 	else:
 		$FlashTimer.start()
 	print("dark timer timeout")
-	
-func _on_music_finished():
+
+func _on_music_curse_ended():
 	$FlashTimer.stop()
-	$DarkTimer.stop()
+	await $DarkTimer.stop()
 	
 	$Hero.can_move = false
 	$Wizard.can_move = false

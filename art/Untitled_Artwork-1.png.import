@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8yj3e7ic4135"
-path="res://.godot/imported/wizard_1.png-39b088422c50cb34eafbaea384673ae2.ctex"
+uid="uid://c8nw4rgrvg8lc"
+path="res://.godot/imported/Untitled_Artwork-1.png-9eeb59d11f93135d0ad174e6e503a713.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/wizard_1.png"
-dest_files=["res://.godot/imported/wizard_1.png-39b088422c50cb34eafbaea384673ae2.ctex"]
+source_file="res://art/Untitled_Artwork-1.png"
+dest_files=["res://.godot/imported/Untitled_Artwork-1.png-9eeb59d11f93135d0ad174e6e503a713.ctex"]
 
 [params]
 

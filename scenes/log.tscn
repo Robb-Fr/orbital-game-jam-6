@@ -52,7 +52,7 @@ script = ExtResource("1_pycpl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qpcke")
 animation = &"visible"
-frame_progress = 0.0416638
+frame_progress = 0.187712
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 2.5)

@@ -127,7 +127,7 @@ position = Vector2(1080, 576)
 [node name="HeroStartPosition" type="Marker2D" parent="."]
 position = Vector2(72, 72)
 
-[connection signal="finished" from="Music" to="." method="_on_music_finished"]
+[connection signal="curse_ended" from="Music" to="." method="_on_music_curse_ended"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="FlashTimer" to="CloudManager" method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="DarkTimer" to="." method="_on_dark_timer_timeout"]
