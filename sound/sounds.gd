@@ -29,5 +29,5 @@ func _on_dark_timer_timeout():
 	play_sound('woosh')
 
 func _on_main_hero_wins():
-	print("playing hero wins")
+	await get_tree().create_timer(1).timeout
 	play_sound('jingle_hero')
