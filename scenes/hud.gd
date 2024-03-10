@@ -9,13 +9,8 @@ func show_message(text):
 	$MessageTimer.start()
 	
 func on_ended_replay():
-<<<<<<< HEAD
-	$Message.text = "Revenge of the cursed"
-	$Message.show()
-=======
 	#$Message.text = "Revenge of the cursed"
 	#$Message.show()
->>>>>>> refs/remotes/origin/main
 	
 	await get_tree().create_timer(1.0).timeout
 	$StartButton.show()
