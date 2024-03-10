@@ -4,6 +4,7 @@ var sounds = {
 	'ouch': load('res://sound/ouch.mp3'),
 	'woosh': load('res://sound/woosh.wav'),
 	'hsoow': load("res://sound/hsoow.wav"),
+	'jingle_hero': load("res://sound/jingle_hero.wav"),
 }
 
 # Called when the node enters the scene tree for the first time.
