@@ -58,6 +58,16 @@ one_shot = true
 wait_time = 5.85
 one_shot = true
 
+[node name="Hero" parent="." instance=ExtResource("2_47bs6")]
+position = Vector2(72, 72)
+script = ExtResource("3_vucas")
+metadata/_edit_group_ = true
+
+[node name="Wizard" parent="." instance=ExtResource("2_47bs6")]
+position = Vector2(1080, 576)
+script = ExtResource("4_f7c6c")
+metadata/_edit_group_ = true
+
 [node name="CloudManager" type="Node2D" parent="."]
 script = ExtResource("8_npn4g")
 
@@ -99,21 +109,20 @@ position = Vector2(540, 324)
 [node name="Wall15" parent="." instance=ExtResource("1_juajr")]
 position = Vector2(396, 113)
 
-[node name="Hero" parent="." instance=ExtResource("2_47bs6")]
-position = Vector2(72, 72)
-script = ExtResource("3_vucas")
-metadata/_edit_group_ = true
-
-[node name="Wizard" parent="." instance=ExtResource("2_47bs6")]
-position = Vector2(1080, 576)
-script = ExtResource("4_f7c6c")
-metadata/_edit_group_ = true
-
 [node name="Tree" parent="." instance=ExtResource("11_u3nb5")]
 position = Vector2(912, 198)
 
 [node name="Tree2" parent="." instance=ExtResource("11_u3nb5")]
-position = Vector2(360, 525)
+position = Vector2(376, 551)
+
+[node name="Pond" parent="." instance=ExtResource("12_lc4h0")]
+position = Vector2(912, 569)
+
+[node name="LittlePound2" parent="." instance=ExtResource("13_ato5o")]
+position = Vector2(153, 508)
+
+[node name="LittlePound" parent="." instance=ExtResource("13_ato5o")]
+position = Vector2(648, 149)
 
 [node name="HUD" parent="." instance=ExtResource("9_4xeko")]
 
@@ -123,15 +132,7 @@ position = Vector2(1080, 576)
 [node name="HeroStartPosition" type="Marker2D" parent="."]
 position = Vector2(72, 72)
 
-[node name="Pond" parent="." instance=ExtResource("12_lc4h0")]
-position = Vector2(912, 569)
-
-[node name="LittlePound2" parent="." instance=ExtResource("13_ato5o")]
-position = Vector2(171, 508)
-
-[node name="LittlePound" parent="." instance=ExtResource("13_ato5o")]
-position = Vector2(676, 164)
-
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="FlashTimer" to="CloudManager" method="_on_flash_timer_timeout"]
 [connection signal="timeout" from="DarkTimer" to="." method="_on_dark_timer_timeout"]

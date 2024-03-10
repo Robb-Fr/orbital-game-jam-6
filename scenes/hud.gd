@@ -8,8 +8,11 @@ func show_message(text):
 	$Message.show()
 	$MessageTimer.start()
 	
-func show_game_over():
-	show_message("Hero Wins")
+func show_game_over(hero_wins: bool):
+	if hero_wins:
+		show_message("Hero Wins")
+	else:
+		show_message("Wizard Wins")
 	await $MessageTimer.timeout
 	
 	$Message.text = "Hero catch the Wizard"

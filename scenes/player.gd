@@ -18,12 +18,10 @@ func start(pos: Vector2 = position):
 	prev_pos = pos
 	moving = false
 	target = pos
-	visible = false
 	dead = false
 
 func _ready():
 	start()
-	visible = true
 
 func _process(delta):
 	if not moving and not dead and can_move:

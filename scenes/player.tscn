@@ -1,18 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://onl7ofsree7u"]
+[gd_scene load_steps=10 format=3 uid="uid://onl7ofsree7u"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_tnbpa"]
-[ext_resource type="Texture2D" uid="uid://c7q72j0v8u7p2" path="res://art/hero 4.png" id="2_r56a7"]
+[ext_resource type="Texture2D" uid="uid://c085c3dae7n2f" path="res://art/hero-1.png" id="2_bjb7y"]
+[ext_resource type="Texture2D" uid="uid://vgaf70kr4nsv" path="res://art/hero-2.png" id="3_pb5dk"]
 [ext_resource type="Texture2D" uid="uid://b8yj3e7ic4135" path="res://art/wizard_1.png" id="3_u2y64"]
+[ext_resource type="Texture2D" uid="uid://dnu0660s0u6ui" path="res://art/hero-3.png" id="4_iptm8"]
+[ext_resource type="Texture2D" uid="uid://by5wlqu5nxhrn" path="res://art/hero-4.png" id="5_brj56"]
+[ext_resource type="Texture2D" uid="uid://3tsq7nwatcik" path="res://art/hero-5.png" id="6_poo5p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8vxwe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_r56a7")
+"texture": ExtResource("2_bjb7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pb5dk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iptm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_brj56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_poo5p")
 }],
 "loop": true,
 "name": &"hero",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -33,7 +49,8 @@ script = ExtResource("1_tnbpa")
 position = Vector2(0, -7)
 scale = Vector2(1.16976, 1.21332)
 sprite_frames = SubResource("SpriteFrames_8vxwe")
-animation = &"wizard"
+animation = &"hero"
+frame_progress = 0.0956415
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_unenh")
