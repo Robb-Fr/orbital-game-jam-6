@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://s1oq8ubwvqrs"]
+[gd_scene load_steps=15 format=3 uid="uid://s1oq8ubwvqrs"]
 
 [ext_resource type="PackedScene" uid="uid://c5e6ve0xy1frm" path="res://scenes/bush.tscn" id="1_juajr"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_vclpo"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://vtt84mxo3g1r" path="res://scenes/tree.tscn" id="11_u3nb5"]
 [ext_resource type="PackedScene" uid="uid://pso5nu2r8pnm" path="res://scenes/pond.tscn" id="12_lc4h0"]
 [ext_resource type="PackedScene" uid="uid://d3mp7sfqawh5s" path="res://scenes/little_pound.tscn" id="13_ato5o"]
+[ext_resource type="PackedScene" uid="uid://c64srvau0j40c" path="res://scenes/log.tscn" id="14_mleso"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vclpo")
@@ -71,21 +72,12 @@ metadata/_edit_group_ = true
 [node name="CloudManager" type="Node2D" parent="."]
 script = ExtResource("8_npn4g")
 
-[node name="Wall2" parent="." instance=ExtResource("1_juajr")]
-position = Vector2(360, 360)
-
-[node name="Wall" parent="." instance=ExtResource("1_juajr")]
-position = Vector2(288, 360)
-
 [node name="Wall3" parent="." instance=ExtResource("1_juajr")]
 position = Vector2(376, 296)
 rotation = 1.5708
 
 [node name="Wall4" parent="." instance=ExtResource("1_juajr")]
 position = Vector2(684, 360)
-
-[node name="Wall5" parent="." instance=ExtResource("1_juajr")]
-position = Vector2(72, 222)
 
 [node name="Wall6" parent="." instance=ExtResource("1_juajr")]
 position = Vector2(648, 542)
@@ -123,6 +115,9 @@ position = Vector2(153, 508)
 
 [node name="LittlePound" parent="." instance=ExtResource("13_ato5o")]
 position = Vector2(648, 149)
+
+[node name="Log" parent="." instance=ExtResource("14_mleso")]
+position = Vector2(181, 270)
 
 [node name="HUD" parent="." instance=ExtResource("9_4xeko")]
 

@@ -1,0 +1,62 @@
+[gd_scene load_steps=11 format=3 uid="uid://c64srvau0j40c"]
+
+[ext_resource type="Texture2D" uid="uid://dbqkmlkhh5q1h" path="res://art/shroom_stump-1.png" id="1_5nis8"]
+[ext_resource type="Texture2D" uid="uid://b6nsd0xv8bhhl" path="res://art/shroom_stump-2.png" id="1_ie24n"]
+[ext_resource type="Script" path="res://scenes/wall.gd" id="1_pycpl"]
+[ext_resource type="Texture2D" uid="uid://c5x1ivfpevoqh" path="res://art/shroom_stump-3.png" id="2_o0wlk"]
+[ext_resource type="Texture2D" uid="uid://c6tkdspli3d22" path="res://art/shroom_stump-4.png" id="3_3loyh"]
+[ext_resource type="Texture2D" uid="uid://bqdhd7rupd8mn" path="res://art/shroom_stump-5.png" id="4_3wdkd"]
+[ext_resource type="Texture2D" uid="uid://b6wmgcqynb2xl" path="res://art/shroom_stump-6.png" id="5_eps6t"]
+[ext_resource type="Texture2D" uid="uid://cckq4rpj8g8qm" path="res://art/shroom_stump-7.png" id="6_h4h8n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qpcke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ie24n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o0wlk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3loyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3wdkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eps6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h4h8n")
+}],
+"loop": true,
+"name": &"hidden",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5nis8")
+}],
+"loop": true,
+"name": &"visible",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsm0g"]
+size = Vector2(122, 105)
+
+[node name="Log" type="Area2D"]
+script = ExtResource("1_pycpl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qpcke")
+animation = &"visible"
+frame_progress = 0.0416638
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2.5)
+shape = SubResource("RectangleShape2D_xsm0g")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

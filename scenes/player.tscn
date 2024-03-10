@@ -28,7 +28,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hero",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -50,7 +50,7 @@ position = Vector2(0, -7)
 scale = Vector2(1.16976, 1.21332)
 sprite_frames = SubResource("SpriteFrames_8vxwe")
 animation = &"hero"
-frame_progress = 0.0956415
+frame_progress = 0.292824
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_unenh")
