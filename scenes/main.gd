@@ -34,7 +34,7 @@ func _on_dark_timer_timeout():
 
 func _on_music_curse_ended():
 	$FlashTimer.stop()
-	await $DarkTimer.stop()
+	$DarkTimer.stop()
 	
 	$Hero.can_move = false
 	$Wizard.can_move = false

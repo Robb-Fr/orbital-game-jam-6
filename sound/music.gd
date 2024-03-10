@@ -17,7 +17,6 @@ func play_song() -> void:
 	stream = game_music
 	play()
 
-
 func _on_finished():
 	if stream == menu_music:
 		play()
