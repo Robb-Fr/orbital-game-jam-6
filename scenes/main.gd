@@ -3,7 +3,20 @@ extends Node2D
 signal ended_replay
 signal hero_wins
 
+var is_first_run = true
+
+func play_cinematic ():
+	$HUD.show_message("Tutorial")
+	for m in [Vector2.RIGHT, Vector2.RIGHT, Vector2.RIGHT, Vector2.RIGHT, Vector2.RIGHT, Vector2.RIGHT, Vector2.DOWN, Vector2.DOWN, Vector2.RIGHT, Vector2.RIGHT, Vector2.DOWN, Vector2.DOWN, Vector2.DOWN]:
+		$Hero.move(m)
+		await get_tree().create_timer(0.25).timeout
+	for m in [Vector2.UP, Vector2.UP, Vector2.UP, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.UP, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.UP, Vector2.UP]:
+		$Wizard.move(m)
+		await get_tree().create_timer(0.15).timeout
+	
+	
 func start():
+	$Music.stop()
 	for node in get_children():
 		if node is Wall:
 			var wall: Wall = node
@@ -12,15 +25,12 @@ func start():
 	$Wizard.start($WizardStartPosition.position)
 	$Hero.can_move = false
 	$Wizard.can_move = false
-	for m in [Vector2.RIGHT, Vector2.RIGHT, Vector2.RIGHT, Vector2.RIGHT, Vector2.RIGHT, Vector2.RIGHT, Vector2.DOWN, Vector2.DOWN, Vector2.RIGHT, Vector2.RIGHT, Vector2.DOWN, Vector2.DOWN, Vector2.DOWN]:
-		$Hero.move(m)
-		await get_tree().create_timer(0.25).timeout
-	for m in [Vector2.UP, Vector2.UP, Vector2.UP, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.UP, Vector2.LEFT, Vector2.LEFT, Vector2.LEFT, Vector2.UP, Vector2.UP]:
-		$Wizard.move(m)
-		await get_tree().create_timer(0.15).timeout
-	await get_tree().create_timer(1).timeout
+	if is_first_run:
+		await play_cinematic()
+		is_first_run = false
+		await get_tree().create_timer(1).timeout
 	$HUD.show_message("Get ready")
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(2).timeout
 	$DarkTimer.start()
 	$Hero.start($HeroStartPosition.position)
 	$Wizard.start($WizardStartPosition.position)
@@ -47,7 +57,7 @@ func _on_flash_timer_timeout():
 
 func game_over(hero_wins: bool):
 	$HUD.show_game_over(hero_wins)
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(5).timeout
 	$Music.play()
 	var hero_moves = $Hero.played_moves
 	var wizard_moves = $Wizard.played_moves
