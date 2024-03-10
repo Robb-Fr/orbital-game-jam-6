@@ -1,26 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3mp7sfqawh5s"]
+[gd_scene load_steps=10 format=3 uid="uid://d3mp7sfqawh5s"]
 
 [ext_resource type="Script" path="res://scenes/wall.gd" id="1_nfq8b"]
-[ext_resource type="Texture2D" uid="uid://d1int643ea76r" path="res://art/pond_2-2.png" id="2_mvj4w"]
-[ext_resource type="Texture2D" uid="uid://c4sj8e6pcaqa1" path="res://art/pond_2-1.png" id="3_hclif"]
+[ext_resource type="Texture2D" uid="uid://c2vw3ncbaxfpu" path="res://art/pond_small-3.png" id="2_0exdn"]
+[ext_resource type="Texture2D" uid="uid://gafuddjvhcxf" path="res://art/pond_small-4.png" id="3_rltc4"]
+[ext_resource type="Texture2D" uid="uid://64ofevc1kgru" path="res://art/pond_small-5.png" id="4_nx84o"]
+[ext_resource type="Texture2D" uid="uid://deirmgig06mr0" path="res://art/pond_small-6.png" id="5_04dnw"]
+[ext_resource type="Texture2D" uid="uid://c3yljl0jiftjy" path="res://art/pond_small-7.png" id="6_6s15x"]
+[ext_resource type="Texture2D" uid="uid://drfv7yg5cdqam" path="res://art/pond_small-1.png" id="7_pjbxw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3jwih"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_mvj4w")
+"texture": ExtResource("2_0exdn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rltc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nx84o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_04dnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6s15x")
 }],
 "loop": true,
 "name": &"hidden",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_hclif")
+"texture": ExtResource("7_pjbxw")
 }],
 "loop": true,
 "name": &"visible",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mi38k"]
@@ -32,6 +48,7 @@ script = ExtResource("1_nfq8b")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3jwih")
 animation = &"visible"
+frame_progress = 0.111056
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.75, 6)
